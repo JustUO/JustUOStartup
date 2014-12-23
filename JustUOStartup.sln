@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustUOStartup", "JustUOStartup\JustUOStartup.csproj", "{DEAA698C-ECDA-4F7E-A71D-504DA663341C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustUOStartup", "JustUOStartup.csproj", "{DEAA698C-ECDA-4F7E-A71D-504DA663341C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

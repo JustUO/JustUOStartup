@@ -19,7 +19,7 @@ namespace JustUOStartup
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ClientBrowse_Click(object sender, EventArgs e)
         {
                         
             DialogResult result = folderBrowserDialog1.ShowDialog();
@@ -39,10 +39,17 @@ namespace JustUOStartup
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Go_Click(object sender, EventArgs e)
         {
             string _clientpath = results.Text;
-            string _shardname = inputName.Text;
+            string _shardname = Shardname.Text;
+            string _expansion = Expansion.Text;
+            string _saves = Saves.Text;
+            string _rewards = Rewards.Text;
+            string _skillcap = Skillcap.Text;
+            string _statcap = Statcap.Text;
+            string _housedecay = Housedecay.Text;
+            string _bonding = Bonding.Text;
 
             if (String.IsNullOrEmpty(_shardname))
             {
@@ -64,6 +71,13 @@ namespace JustUOStartup
                     writer.WriteStartElement("startupinfo");
                     writer.WriteElementString("shardname", _shardname);
                     writer.WriteElementString("clientpath", _clientpath);
+                    writer.WriteElementString("expansion", _expansion);
+                    writer.WriteElementString("saves", _saves);
+                    writer.WriteElementString("rewards", _rewards);
+                    writer.WriteElementString("skillcap", _skillcap);
+                    writer.WriteElementString("statcap", _statcap);
+                    writer.WriteElementString("housedecay", _housedecay);
+                    writer.WriteElementString("bonding", _bonding);
                     writer.WriteEndElement();
                     writer.Flush();
                 }
