@@ -38,8 +38,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.results = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.Expansion = new System.Windows.Forms.ComboBox();
-            this.Expansionlabel = new System.Windows.Forms.Label();
             this.saveslabel = new System.Windows.Forms.Label();
             this.rewardslabel = new System.Windows.Forms.Label();
             this.skillcaplabel = new System.Windows.Forms.Label();
@@ -51,8 +49,8 @@
             this.Rewards = new System.Windows.Forms.NumericUpDown();
             this.Housedecay = new System.Windows.Forms.NumericUpDown();
             this.Bonding = new System.Windows.Forms.NumericUpDown();
-            this.Skillcap = new System.Windows.Forms.TextBox();
-            this.Statcap = new System.Windows.Forms.TextBox();
+            this.Skillcap = new System.Windows.Forms.MaskedTextBox();
+            this.Statcap = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Saves)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rewards)).BeginInit();
@@ -103,7 +101,7 @@
             // 
             this.start.AutoSize = true;
             this.start.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start.Location = new System.Drawing.Point(300, 550);
+            this.start.Location = new System.Drawing.Point(225, 550);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(87, 19);
             this.start.TabIndex = 5;
@@ -111,7 +109,7 @@
             // 
             // Gobutton
             // 
-            this.Gobutton.Location = new System.Drawing.Point(400, 550);
+            this.Gobutton.Location = new System.Drawing.Point(325, 550);
             this.Gobutton.Name = "Gobutton";
             this.Gobutton.Size = new System.Drawing.Size(75, 23);
             this.Gobutton.TabIndex = 10;
@@ -125,6 +123,8 @@
             // 
             // results
             // 
+            this.results.Cursor = System.Windows.Forms.Cursors.No;
+            this.results.Enabled = false;
             this.results.Location = new System.Drawing.Point(125, 360);
             this.results.Name = "results";
             this.results.ReadOnly = true;
@@ -140,27 +140,6 @@
             this.NameLabel.Size = new System.Drawing.Size(356, 15);
             this.NameLabel.TabIndex = 15;
             this.NameLabel.Text = "Please type the name to be used for your shard in the box below:";
-            // 
-            // Expansion
-            // 
-            this.Expansion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Expansion.FormattingEnabled = true;
-            this.Expansion.Location = new System.Drawing.Point(125, 425);
-            this.Expansion.Name = "Expansion";
-            this.Expansion.Size = new System.Drawing.Size(80, 21);
-            this.Expansion.TabIndex = 3;
-            string[] Expansions = new string[]{"None", "T2A", "UOR", "AOS", "ML", "SA", "HS"};
-            this.Expansion.Items.AddRange(Expansions);
-            this.Expansion.SelectedIndex = 6;
-            // 
-            // Expansionlabel
-            // 
-            this.Expansionlabel.AutoSize = true;
-            this.Expansionlabel.Location = new System.Drawing.Point(125, 450);
-            this.Expansionlabel.Name = "Expansionlabel";
-            this.Expansionlabel.Size = new System.Drawing.Size(56, 13);
-            this.Expansionlabel.TabIndex = 16;
-            this.Expansionlabel.Text = "Expansion";
             // 
             // saveslabel
             // 
@@ -210,7 +189,7 @@
             // bondinglabel
             // 
             this.bondinglabel.AutoSize = true;
-            this.bondinglabel.Location = new System.Drawing.Point(125, 550);
+            this.bondinglabel.Location = new System.Drawing.Point(125, 450);
             this.bondinglabel.Name = "bondinglabel";
             this.bondinglabel.Size = new System.Drawing.Size(122, 13);
             this.bondinglabel.TabIndex = 22;
@@ -283,7 +262,7 @@
             // Housedecay
             // 
             this.Housedecay.Increment = new decimal(new int[] {
-            15,
+            5,
             0,
             0,
             0});
@@ -294,7 +273,7 @@
             0,
             0});
             this.Housedecay.Minimum = new decimal(new int[] {
-            15,
+            5,
             0,
             0,
             0});
@@ -302,14 +281,14 @@
             this.Housedecay.Size = new System.Drawing.Size(80, 20);
             this.Housedecay.TabIndex = 8;
             this.Housedecay.Value = new decimal(new int[] {
-            90,
+            5,
             0,
             0,
             0});
             // 
             // Bonding
             // 
-            this.Bonding.Location = new System.Drawing.Point(125, 525);
+            this.Bonding.Location = new System.Drawing.Point(125, 425);
             this.Bonding.Maximum = new decimal(new int[] {
             30,
             0,
@@ -332,20 +311,21 @@
             // Skillcap
             // 
             this.Skillcap.Location = new System.Drawing.Point(125, 475);
-            this.Skillcap.MaxLength = 5;
+            this.Skillcap.Mask = "00000";
             this.Skillcap.Name = "Skillcap";
-            this.Skillcap.Size = new System.Drawing.Size(100, 20);
-            this.Skillcap.TabIndex = 6;
+            this.Skillcap.Size = new System.Drawing.Size(80, 20);
+            this.Skillcap.TabIndex = 24;
             this.Skillcap.Text = "7000";
             // 
             // Statcap
             // 
             this.Statcap.Location = new System.Drawing.Point(275, 475);
-            this.Statcap.MaxLength = 5;
+            this.Statcap.Mask = "000";
             this.Statcap.Name = "Statcap";
-            this.Statcap.Size = new System.Drawing.Size(100, 20);
-            this.Statcap.TabIndex = 7;
+            this.Statcap.Size = new System.Drawing.Size(80, 20);
+            this.Statcap.TabIndex = 25;
             this.Statcap.Text = "225";
+            this.Statcap.ValidatingType = typeof(int);
             // 
             // Form1
             // 
@@ -367,8 +347,6 @@
             this.Controls.Add(this.skillcaplabel);
             this.Controls.Add(this.rewardslabel);
             this.Controls.Add(this.saveslabel);
-            this.Controls.Add(this.Expansionlabel);
-            this.Controls.Add(this.Expansion);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.results);
             this.Controls.Add(this.Gobutton);
@@ -400,8 +378,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox results;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.ComboBox Expansion;
-        private System.Windows.Forms.Label Expansionlabel;
         private System.Windows.Forms.Label saveslabel;
         private System.Windows.Forms.Label rewardslabel;
         private System.Windows.Forms.Label skillcaplabel;
@@ -413,8 +389,8 @@
         private System.Windows.Forms.NumericUpDown Rewards;
         private System.Windows.Forms.NumericUpDown Housedecay;
         private System.Windows.Forms.NumericUpDown Bonding;
-        private System.Windows.Forms.TextBox Skillcap;
-        private System.Windows.Forms.TextBox Statcap;
+        private System.Windows.Forms.MaskedTextBox Skillcap;
+        private System.Windows.Forms.MaskedTextBox Statcap;
 
     }
 }

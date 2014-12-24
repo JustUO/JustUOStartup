@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
@@ -43,7 +36,6 @@ namespace JustUOStartup
         {
             string _clientpath = results.Text;
             string _shardname = Shardname.Text;
-            string _expansion = Expansion.Text;
             string _saves = Saves.Text;
             string _rewards = Rewards.Text;
             string _skillcap = Skillcap.Text;
@@ -66,12 +58,15 @@ namespace JustUOStartup
                 if (File.Exists(@"startup.xml"))
                     File.Delete(@"startup.xml");
 
-                using (XmlWriter writer = XmlWriter.Create("startup.xml"))
+                var xmlWriterSettings = new XmlWriterSettings();
+                xmlWriterSettings.NewLineOnAttributes = true;
+                xmlWriterSettings.Indent = true;
+
+                using (XmlWriter writer = XmlWriter.Create("startup.xml", xmlWriterSettings))
                 {
                     writer.WriteStartElement("startupinfo");
                     writer.WriteElementString("shardname", _shardname);
                     writer.WriteElementString("clientpath", _clientpath);
-                    writer.WriteElementString("expansion", _expansion);
                     writer.WriteElementString("saves", _saves);
                     writer.WriteElementString("rewards", _rewards);
                     writer.WriteElementString("skillcap", _skillcap);
@@ -82,10 +77,12 @@ namespace JustUOStartup
                     writer.Flush();
                 }
 
-                MessageBox.Show("Initialization complete, we will now compile your server and start it!");
+                MessageBox.Show("Configuration File generated, we will now start your server!");
+
+                //MessageBox.Show("Initialization complete, we will now compile your server and start it!");
 
                 System.Diagnostics.Process proc = new System.Diagnostics.Process();
-                proc.StartInfo.FileName = "Compile.WIN.bat";
+                proc.StartInfo.FileName = "JustUO.exe";
                 proc.StartInfo.RedirectStandardError = false;
                 proc.StartInfo.RedirectStandardOutput = false;
                 proc.StartInfo.UseShellExecute = false;
